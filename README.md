@@ -64,8 +64,8 @@ export const login = (credentials) => (dispatch) => {
   // Mock API call
   return new Promise((resolve) => {
     setTimeout(() => {
-      dispatch(loginSuccess({ 
-        token: 'fake-jwt-token', 
+      dispatch(loginSuccess({
+        token: 'fake-jwt-token',
         user: { email: credentials.email }
       }));
       resolve();
@@ -155,7 +155,7 @@ import { useSelector } from 'react-redux';
 
 const Dashboard = () => {
   const { user } = useSelector(state => state.auth);
-  
+
   return (
     <div>
       <h1>Welcome {user?.email}</h1>
@@ -211,7 +211,7 @@ import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useSelector(state => state.auth);
-  
+
   return isAuthenticated ? children : <Navigate to="/login" />;
 };
 
